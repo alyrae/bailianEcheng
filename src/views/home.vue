@@ -1,14 +1,27 @@
 <template>
     <div id="home">
        <top></top>
-       <router-view></router-view>
+       <maingoods></maingoods>
     </div>
 </template>
 <script>
 import top from './home/top'
+import maingoods from './home/maingoods'
+import {mapState} from  'vuex'
 export default {
     components:{
-        top
+        top,
+        maingoods
+    },
+    computed:{
+        ...mapState(['istabbarshow'])
+    },
+    destroyed(){
+        this.$store.commit('hasappmutation',false)
+        this.$store.commit('istabbarshowmutation',false)
+    },
+    mounted(){
+        this.$store.commit('istabbarshowmutation',true)
     }
 }
 </script>
@@ -16,10 +29,14 @@ export default {
     #home{
         display:flex;
         flex-direction: column;
-        height:100%;
         #top{
             border-bottom:.01rem solid #ccc;
         }
+        .test{
+            overflow:auto;
+            height:100%;
+        }
+
     }
 </style>
 

@@ -1,16 +1,20 @@
 <template>
     <ul id="tabbar">
-        <router-link to="/home" tag="li" activeClass="active">            
+        <router-link to="/" tag="li" activeClass="active">            
                 <i class="iconfont icon-home"></i>
                 <p>首页</p>
         </router-link>
-        <router-link to="/classify" tag="li" activeClass="active">            
+        <router-link to="/mall" tag="li" activeClass="active">            
                 <i class="iconfont icon-svgclassify"></i>
-                <p>分类</p>
+                <p>商城</p>
         </router-link>
-        <router-link to="/cart" tag="li" activeClass="active">            
+        <router-link to="/overseaservice" tag="li" activeClass="active">            
                 <i class="iconfont icon-cart"></i>
-                <p>购物车</p>            
+                <p>海外购物</p>            
+        </router-link>
+        <router-link to="/store" tag="li" activeClass="active">            
+                <i class="iconfont icon-cart"></i>
+                <p>到店</p>            
         </router-link>
         <router-link to="/my" tag="li" activeClass="active">            
                 <i class="iconfont icon-my"></i>
@@ -21,22 +25,26 @@
 <style scoped lang="scss">
     #tabbar{
         width:100%;
-        height:0.4rem;
-        border-top:1px solid orange;
+        height:0.5rem;
+        border-top:1px solid white;
         display:flex;
+        background:black;
         li{
             flex:1;
             text-align:center;
             font-size:0.12rem;
-            color:#666;
-            padding-top:0.05rem;
+            color:#7e8c8d;
+            padding-top:.05rem;
             p{
                 height:0.14rem;
                 line-height:0.14rem;
             }
+            i{
+                font-size:.25rem
+            }
         }
         .active{
-            color:#b4282d
+            color:#fff
         }
     }
 </style>

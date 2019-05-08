@@ -8,11 +8,6 @@
   import tabbar from './components/tabbar.vue'
   import {mapState} from 'vuex'
   export default {
-    data(){
-      return {
-        
-      }
-    },
     computed:{
       ...mapState(['istabbarshow'])
     },
@@ -34,7 +29,6 @@
     height:100%;
   }
   #app > div {
-    height:100%;
     flex:1
   }
 </style>
@@ -48,7 +42,7 @@
     padding:0;
   }
   img{
-    display: none;
+    display: block;
   }
   a{
     text-decoration: none;
