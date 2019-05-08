@@ -8,6 +8,7 @@ import Store from './views/store'
 import My from './views/my'
 import Login from './views/login'
 
+
 Vue.use(Router)
 
 
