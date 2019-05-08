@@ -1,0 +1,244 @@
+1.PC页面常用布局方案
+	1.左固定 右自适应
+		1.BFC规范 box1左浮动 box2不写宽度(或100%),加overflow:hidden(box2) 
+				  box1,box2兄弟关系
+		2.定位    box1绝对定位 box2不写宽度,加margin-left   
+		3.浮动
+		4.弹性
+	2.等高布局
+		使列表的高度以最高的列表为标准(可随之改变)
+
+		方法
+			<div>
+				<div class="box1"></div>
+				<div class="box2"></div>
+			</div>
+			给box1 box2加padding-bottom：1000px margin:-1000px
+			给父级div加overflow:hidden
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			/* 双飞翼布局 */
+			/* *{ margin:0; padding:0;}
+			#head{ height:100px; background:red; margin:0 auto;}
+			#container{ margin:0 auto; overflow: hidden;}
+			#left{ width:200px; height:200px; background:blue; float:left; margin-left: -100%;}
+			#right{ width:150px; height:200px; background: green; float:left; margin-left: -150px;}
+			#center{ width:100%; float:left;}
+			#center div{ background:yellow; margin:0 150px 0 200px; height:300px;} */
+
+
+			/*圣杯布局*/
+
+			/**{ margin:0; padding:0;}
+			#head{ height:100px; background:red; margin:0 auto;}
+			#container{ margin:0 auto; margin: 0 150px 0 200px;}
+			#left{ width:200px; height:200px; background:blue; float:left; margin-left: -100%; position: relative; left:-200px;}
+			#right{ width:150px; height:200px; background: green; float:left; margin-left: -150px; position: relative; right:-150px;}
+			#center{ width:100%; float:left; background:yellow; height:300px;}*/
+		
+		</style>
+	</head>
+	<body>
+		
+		<!-- 双飞翼布局 -->
+		<!-- <div id="head"></div>
+		<div id="container">
+			<div id="center">
+				<div>
+					aaaaaaaaaaa
+				</div>	
+			</div>
+			<div id="left"></div>
+			<div id="right"></div>
+		</div> -->
+
+
+		<!-- 圣杯布局 -->
+		<!-- <div id="head"></div>
+		<div id="container">
+			<div id="center">
+				aaaaaaaaaaa	
+			</div>
+			<div id="left"></div>
+			<div id="right"></div>
+		</div> -->
+
+	</body>
+	</html>
+2.移动端常用布局
+	1.上下固定 中间自适应布局
+		1.父级 overflow:hidden 不然会有margin传递问题
+		  上下 固定定位 
+		  中间 height:calc(100% - 上下盒子高度) 
+		  	   marign:100px 0
+		  	   overflow:auto(让中间部分生出一个滚动条)
+
+		2.父级 overflow:hidden 不然会有margin传递问题
+		  上下 固定定位 
+		  中间 height不定义 width:100%  position:absolute;top:100px;bottom:100px;
+		  	   overflow:auto 
+
+		3.父级 display:flex
+		  子级 上盒子
+		  	   中间盒子 flex:1
+		  	   下盒子
+	2.viewport
+		visual viewport 视图窗口
+			固定在上 同设备大小相同
+		layout viewport 布局窗口
+			固定在下 可改变大小  ios固定980px(以前不针对移动端作页面,980p压缩到移动端大小后能全部显示pc端页面)
+
+		样式写在layout中,然后压缩到visual中
+
+		现在是把layout设置成设计稿大小
+
+		设计师只会设计一个设备大小的设计稿 适配工作由开发人员完成
+
+		现代网页如何针对移动端
+			pc 移动端 各做一套 域名不同
+
+			在移动端输入pc端域名时 后端检测是否为移动端 然后是否转移(重定向技术)
+
+		查看layout
+			document.documentElement.clientWidth
+
+		改变layout
+			<meta name="viewport" content="width=device-sacle,initial-scale=1,minimum-scale=1,maximum-scale=1,userscalable=no">
+				layout宽 
+					width=400 width="device-width"(自动同设备一样)
+				初始缩放(只能放大 0~1 值越小 越大)
+					initial-sacle=1.0
+				最小缩放
+					minimum-scale=1.0
+				最大缩放
+					maximum-scale=1.0
+				用户能否缩放
+					userscalable=no
+
+	2.sublime中创建片段
+		tools --> 新片段 --> filename.sublime-snippet
+		${1} 初始光标的位置
+		${2} 按下tab键后 光标位置
+		<tabTrigger>快捷键</tabTrigger>
+
+	3.适配方案
+		流式布局(百分比布局)	
+			大屏下显示内容多 但比例有些失调
+		rem布局(等比缩放布局)
+			比例不会失调 大屏下内容量不变
+
+
+		1.流式布局
+			步骤:<meta name="viewport" content="width=device-sacle,initial-scale=1,minimum-scale=1,maximum-scale=1,userscalable=no">
+
+			width:100%
+			display:flex;
+			固定宽高,通过flex排版
+		
+		2.等比布局(rem布局)
+			步骤:
+				1.<script>
+					var fontSize = document.documentElement.clientWidth/3.75;(3.75换成设计稿的1%)
+					document.documentElement.style.fontSize = fontSize + 'px';
+				</script>
+				2.body{font-size:16px}
+				3.<meta name="viewport" content="width=device-sacle,initial-scale=1,minimum-scale=1,maximum-scale=1,userscalable=no">
+			
+			原理:
+			(1) em 本身或父元素的font-size		
+				rem html根标签的font-size
+				vw/vh(ViewWidth/ViewHeight) 把屏幕宽分为100份 1vw占1份
+				注意:50% 只是父级的一半 50vw是屏幕一半
+			
+			(2) rem布局都采用rem单位设置大小 想办法动态改变html的font-size值
+				怎么动态设置 html 的font-size
+					1.JS
+						<script>
+							var fontSize = document.documentElement.clientWidth/3.75;
+							document.documentElement.style.fontSize = fontSize + 'px';
+						</script>
+
+						注意:font-size最小值12px 故不能让 var 小于12px 
+							 最好把这个动态值设置成100px 50px等 比较好算
+					2.vw
+						html{font-size:26.6666vw} 具体值: 1rem=(设备宽度/100/100)dw=100px
+
+
+					理解:
+						一般设计稿是iphone6/7/8的大小(375×667)
+						把1rem设置成3.75px 相当于 1rem = 1%
+						当设备大小改变时 1rem代表的实际大小虽然变了 但元素所占的百分比不变
+						但为了计算方便,把1rem设置成100px
+						所以把html的fontsize即1rem设置成设计稿的1% 然后页面中用到的px全部换成rem 然后给body添加样式font-size:16px
+
+
+			2.sublime输入命令
+				ctrl + shift + p
+				install package 安装插件
+				css3 语法高亮
+
+			3.设置rem	
+				1.perferences ->  packagesettings -> cssrem -> settings-users :"px_to_rem": 100,
+				2.自己把px都改成rem
+				
+		3.响应式布局
+			媒体查询
+				1.
+					<style>
+
+						@media all and (min-width: 100px) and (max-width: 1000px){
+							#box1{width: 100}
+						}
+						@media not all and (min-width: 100px){
+							#box1{width: 100}
+						}
+						@media all and (orientation:portrait){
+							#box1{width: 100}
+						}
+					</style>
+				2.
+					<link rel="stylesheet" href="" media="all and (orientation:portrait){#box1{width: 100}}">
+							
+						
+
+				注意: all 是指针对所有设备 这条代码都有效
+					  screen 计算机屏幕 (默认)
+					  print 打印模式下  (打印模式下 彩色部分不显示)
+					  tv 电视设备
+					  ...
+
+					  not是指小于100px的时候采用这条样式
+
+					  orientation:portrait  竖屏
+
+					  orientation:landscape 横屏
+
+			3.
+				先写 pc端 在用@media适配 pad phones 适配分辨率从大到小递减
+				
+				媒体查询中主要修改样式
+					display:	none| 	display
+					float:		left| 	none
+					width:		px	| 	% 		|auto
+					text-align: left|   right
+
+			4.
+				屏幕分辨率
+				ppi 手机上每英寸有多少像素
+
+				设备像素(物理像素)：就是手机像素 1920x1080 只不过把他压缩到 375中
+				css像素(在手机上是相对单位) :就是layout viewport pc端是绝对的 因pc上一像素就是一个分辨率
+				设备独立像素(逻辑像素):iphone6 375 667 (描述手机设备的宽高)
+							 iphone+ 414 736
+
+				像素比(DPR)
+					设备像素/设备独立像素
+					iphone6 ->  750  1334/375 667 = 2
+					iphone6+ -> 1080 1920/414 736 = 3(像素比不能出现小数，会四舍五入)
+
+				注意:1分辨率是1个最小方块 显示颜色等信息 1像素则不是
