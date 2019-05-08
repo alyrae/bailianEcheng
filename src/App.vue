@@ -48,7 +48,7 @@
     padding:0;
   }
   img{
-    display: none;
+    display: block;
   }
   a{
     text-decoration: none;
