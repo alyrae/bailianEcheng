@@ -60,7 +60,6 @@
 </template>
 <script>
 import axios from "axios";
-import Vue from 'vue';
 export default {
   data() {
     return {
@@ -126,6 +125,7 @@ export default {
 }
 .new {
   margin-bottom: 0.05rem;
+  overflow: hidden;
 }
 .new > img {
   width: 100%;
