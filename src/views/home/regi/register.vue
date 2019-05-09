@@ -38,7 +38,24 @@
         </li>
       </ul>
     </div>
-
+    <div class="newfoo">
+      <ul>
+        <li v-for="da in datalist1.flash_sales">
+          <div class="flag">
+          <img :src="da.sales_thumb" alt="">
+          </div>
+          <div class="pper">
+            <div class="pperleft">
+              <p>{{da.sales_title}} <span>{{da.discount_info}}</span> </p>
+              <p>{{da.sales_desc}}</p>
+            </div>
+            <div class="pperright">
+              <img :src="da.sales_logo" alt="">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -68,6 +85,45 @@ export default {
 };
 </script>
 <style scoped>
+.pperright img{
+      width:.6rem;
+    height: .3rem;
+}
+.pperright{
+  float:right;
+  margin-left: 1rem
+}
+.pperleft p:nth-of-type(2){
+  text-align: left;
+    font-family: \\9ED1\4F53;
+    font-size: 13px;
+    color: #999;
+}
+.pperleft p:nth-of-type(1){
+      margin-right: 1px;
+      font-size: 14px;
+}
+.pperleft p:nth-of-type(1) span{
+      color: #f33
+}
+.pperleft{
+    float: left;
+}
+.pper{
+      padding: 13px 10px;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flag{
+    height: 0;
+    padding-bottom: 60.8%;
+}
+.flag img{
+  width: 100%
+}
+.newfoo ul li{
+  margin-bottom: .1rem
+}
 .new {
   margin-bottom: 0.05rem;
 }
@@ -109,13 +165,11 @@ img{
     padding-bottom: 18px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
 }
 .newhook_book p{
   font-family: \\9ED1\4F53;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    overflow: hidden;
     font-size: 12px;
     color: #999;
     height: 34px;
