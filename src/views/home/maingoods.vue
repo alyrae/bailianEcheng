@@ -1,6 +1,5 @@
 <template>
     <div id="maingoods">
-                <p v-for='n in 10'>{{n}}</p>
 
         <swider></swider>
         <navv></navv>

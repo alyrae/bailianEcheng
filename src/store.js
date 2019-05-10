@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 import {SHOW_TABBAR_MUTATION, LOGIN_MUTATION, LOGIN_SHOW_MUTATION, LOGIN_METHOD, HASAPP_MUTATION} from './type'
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ export default new Vuex.Store({
     cartList: [],
     isloginshow: false,
     loginmethod: '',
-    hasapp: false
+    hasapp: false,
+    datalist1:[]
   },
   mutations: {
     [SHOW_TABBAR_MUTATION](state,payload){
@@ -27,9 +29,20 @@ export default new Vuex.Store({
     },
     [HASAPP_MUTATION](state,payload){
       state.hasapp = payload
+    },
+    postaaa(start,payload){
+      start.datalist1=payload
     }
   },
   actions: {
-
+    getaaa(store){
+      axios({
+        url:
+          "https://apim.restful.5lux.com.cn/index/other_advert",
+       
+      }).then(res => {
+        store.commit('postaaa',res.data.data)
+      });
+    }
   }
 })

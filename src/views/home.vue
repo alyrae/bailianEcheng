@@ -32,6 +32,7 @@ export default {
     #home{
         display:flex;
         flex-direction: column;
+        width:100%;
         #top{
             border-bottom:.01rem solid #ccc;
         }

@@ -21,6 +21,10 @@ export default {
         }).then(res=>{
             this.cataList = res.data.data
         })
+        
+        if(this.$route.params.id==undefined){
+            this.$router.push('/mall?id=0')
+        }
     },
     updated(){
         let scroll = new BScroll('.wrapper',{
@@ -45,6 +49,7 @@ export default {
 <style lang="scss" scoped>
     .midnav{       
         background:white;
+        overflow: hidden;
         ul{
             display:flex;
             width:220%;

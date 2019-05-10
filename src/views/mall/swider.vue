@@ -35,11 +35,10 @@ export default {
 </script>
 <style scoped>
 .aaa{
-            margin-top: .83rem
 
 }
 img{
-    width: 100%
+    width: 100%;
 }
 .mint-swipe{
     width: 100%;
