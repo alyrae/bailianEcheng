@@ -12,7 +12,7 @@ export default {
     beforeRouteEnter (to, from, next) {
         next(vm=>{
         if(!vm.isloged){
-            vm.$router.push('/login')
+            vm.$router.push('/user/login')
         }
     })
   },

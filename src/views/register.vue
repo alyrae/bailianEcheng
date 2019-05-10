@@ -1,31 +1,19 @@
 <template>
     <div id="register">
-        <hd></hd>
+        <reghd></reghd>
         <reg></reg>
     </div>
 </template>
 <script>
-import hd from '../components/hd'
 import reg from './register/reg'
+import reghd from './register/reghd'
 export default {
-    mounted(){
-        this.$store.commit('istabbarshowmutation',false)
-    },
-    destroyed(){
-        this.$store.commit('istabbarshowmutation',true)
-    },
     components:{
-        hd,
-        reg
+        reg,
+        reghd
     }
 }
 </script>
-<style scoped >
-    #register{
-        display:flex;
-        flex-direction:column;
-        flex:none
-    }
-</style>
+
 
 
