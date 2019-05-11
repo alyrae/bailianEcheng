@@ -5,14 +5,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    istabbarshow: false,
+  
+    istabbarshow: false, 
     isloged: false,
     cartList: [],
     isloginshow: false,
     loginmethod: '',
-    hasapp: false
-  },
+    hasapp: false,
+    list:{},
+    storeallCb1:{},
+    storeallCb2:{},
+    storeallCb1:false,
+    storeallCb2:false
+    
+  },  
   mutations: {
+   
+    isStoreChildTwo(state,payload){
+      state.list = payload
+    },
+   
+    isstoreallCb1(state,payload){
+      state.storeallCb1 = payload
+    },
+    isstoreallCb2(state,payload){
+      state.storeallCb2 = payload
+    }, 
+    
     [SHOW_TABBAR_MUTATION](state,payload){
       state.istabbarshow = payload
     },
@@ -33,3 +52,4 @@ export default new Vuex.Store({
 
   }
 })
+
