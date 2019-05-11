@@ -12,7 +12,11 @@ export default new Vuex.Store({
     isloginshow: false,
     loginmethod: '',
     hasapp: false,
-    datalist1:[]
+    datalist1:[],
+    ishome: true,
+    datalist: {},
+    datalista:{},
+    datali:{}
   },
   mutations: {
     [SHOW_TABBAR_MUTATION](state,payload){
