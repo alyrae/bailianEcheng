@@ -47,11 +47,13 @@ import axios from 'axios'
     .clear:after{ content:""; display: block; clear:both;}
 
     div{
+       
         height: .39rem;
         border-bottom: .01rem #ccc solid;
       
     }
     .header{
+        
         position: relative;
         left: .96rem;
         top:.06rem; 

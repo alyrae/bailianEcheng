@@ -28,6 +28,9 @@
         height:0.5rem;
         border-top:1px solid white;
         display:flex;
+        z-index: 99;
+        position:fixed;
+        bottom:0px;
         background:black;
         li{
             flex:1;

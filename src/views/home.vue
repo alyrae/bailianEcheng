@@ -8,11 +8,13 @@
 import top from './home/top'
 import maingoods from './home/maingoods'
 import {mapState} from  'vuex'
+
 export default {
     components:{
         top,
-        maingoods
+     maingoods
     },
+
     computed:{
         ...mapState(['istabbarshow'])
     },
@@ -29,6 +31,7 @@ export default {
     #home{
         display:flex;
         flex-direction: column;
+        width:100%;
         #top{
             border-bottom:.01rem solid #ccc;
         }

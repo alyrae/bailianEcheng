@@ -1,5 +1,5 @@
 <template> 
-    <div>       
+    <div class="store">       
         <storeFixed :class="isFixed?'fixed':''"></storeFixed>
         <storeChild ref="storeChild" v-show="$store.state.isStoreChild"></storeChild>        
     </div>  
@@ -44,6 +44,9 @@ import storeChild from './storeChild.vue'
 }
 </script>
 <style lang="scss" scoped>
+    .store{
+        width: 100%;
+    }
     .fixed{
         z-index: 1;
         position: fixed;

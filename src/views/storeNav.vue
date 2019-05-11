@@ -56,10 +56,12 @@ export default {
 
 <style lang="scss" scoped> 
      .clear:after{ content:""; display: block; clear:both;}
-  
+     .storeNav{ 
+           
+     }
      .navList{
           margin-top: -0.06rem;
-          width: 100%;
+         
           background: white;  
           position: relative;
           top: .06rem;

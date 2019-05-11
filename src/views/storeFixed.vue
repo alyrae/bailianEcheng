@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="storeFixed">
         <storeNavOne></storeNavOne>
         <storeNav></storeNav>
        
@@ -21,6 +21,8 @@ export default {
   
 }
 </script>
+
+
 
 
 

@@ -9,10 +9,13 @@
   import {mapState} from 'vuex'
   export default {
     computed:{
-      ...mapState(['istabbarshow'])
+      ...mapState(['istabbarshow','rem'])
     },
     components:{
       tabbar
+    },
+    mounted(){
+      this.$store.state.rem = document.documentElement.clientWidth/3.75/100
     }
   }
 </script>
@@ -29,7 +32,9 @@
     height:100%;
   }
   #app > div {
-    flex:1
+    position:absolute;
+    top:0;
+    bottom:.5rem;
   }
 </style>
 <style src='../public/iconfont/iconfont.css'>
