@@ -14,6 +14,9 @@ export default {
     },
     computed:{
         ...mapState(['isbottombarshow'])
+    },
+    updated(){
+        console.log(this.$refs)
     }
 }
 </script>
@@ -21,7 +24,8 @@ export default {
     #overseaservice{
         display:flex;
         flex-direction: column;
-        height:100%
+        height:100%;
+        width:100%;
     }
     #overseaservice > div {
         flex:1

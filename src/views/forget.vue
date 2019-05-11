@@ -1,15 +1,15 @@
 <template>
     <div id="forget">
-        <forgethd></forgethd>
+        <hd title="忘记密码"></hd>
         <input type="text" placeholder="请输入手机号/邮箱" v-model="untext">
         <div :style="btnClass" class="btn">下一步</div>
     </div>
 </template>
 <script>
-import forgethd from './forget/forgethd'
+import hd from '../components/hd'
 export default {
     components:{
-        forgethd
+        hd
     },
     data(){
         return {
@@ -24,6 +24,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    #forget{
+        margin:.48rem auto 0 auto;
+        left:0;
+        right:0
+    }
     input{
         width:3rem;
         height:.4rem;

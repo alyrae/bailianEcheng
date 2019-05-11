@@ -1,8 +1,8 @@
 <template>
-    <div id="top" :class="position">
+    <div id="top" :style="`background-color:rgba(0,0,0,${homeinfo.per})`">
         <hasapp v-if="!hasapp"></hasapp>
         <search></search>
-        <ul>
+        <ul v-if="homeinfo.isnavshow">
             <router-link tag="li" :to="data.cata_id" v-for="data in cataList">{{data.cata_name}}</router-link>
         </ul>
     </div>
@@ -41,9 +41,9 @@ export default {
         }
     },
     mounted(){
-        window.addEventListener('scroll',()=>{
-            console.log(1)
-        })
+        // window.addEventListener('scroll',()=>{
+        //     console.log(document.documentElement.scrollTop)
+        // })
     },
     methods:{
         clickLogo(){
@@ -56,17 +56,19 @@ export default {
         search
     },
     computed:{
-        ...mapState(['hasapp'])
+        ...mapState(['hasapp','homeinfo'])
     }
 }
 </script>
 <style lang="scss" scoped>
     #top{
         // background-image:linear-gradient(rgba(0,0,0,.7) 0,rgba(255,255,255,0.7) .44rem);
-        background:rgba(0,0,0,.5);
+        background:url('../../assets/bg.png') 0 .6rem;
+        background-color:rgba(0,0,0,0);
         position:absolute;
         top:0;
         width:100%;
+        z-index: 9999;
     }
     .fixed{
         position:fixed

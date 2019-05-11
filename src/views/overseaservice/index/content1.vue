@@ -14,8 +14,8 @@
         </div>
         <div class="blank"></div>
         <div class="nav">
-            <p :class="active?'active':''" @click="f1()">海外移民</p>
-            <p :class="!active?'active':''" @click="f1()">全球房产</p>
+            <p :class="active?'active':''" @click="f1(0)">海外移民</p>
+            <p :class="!active?'active':''" @click="f1(1)">全球房产</p>
         </div>
         <div class="bar"></div>
         <type3></type3>
@@ -39,9 +39,15 @@ export default {
             active: true
         }
     },
+    props:['father'],
     methods:{
-        f1(){
+        f1(id){
             this.active = !this.active
+            if(id===0){
+                this.father.scrollTop = 965*this.rem
+            }else{
+                this.father.scrollTop = 1325*this.rem
+            }
         },
         f2(index){
             this.$nextTick(()=>{
@@ -59,7 +65,7 @@ export default {
         list
     },
     computed:{
-        ...mapState(['overseas_index'])
+        ...mapState(['overseas_index','rem'])
     },
     mounted(){
         axios({

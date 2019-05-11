@@ -1,9 +1,15 @@
 <template>
     <div class="search">
-        search
-        <!-- 回车,点击都跳转路由 /searchResult?keyword=xxx -->
+        <router-view></router-view>
     </div>
 </template>
+<style scoped >
+    .search{
+        width:100%;
+        height:100%;
+    }
+</style>
+
 <script>
 export default {
     mounted(){

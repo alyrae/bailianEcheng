@@ -44,8 +44,8 @@ export default {
 </script>
 <style lang="scss" scoped>
     .outer{
-        padding:0 .1rem;
         background:white;
+        padding:0 .1rem;
     }
     .wrapper{
         margin-bottom:.1rem;

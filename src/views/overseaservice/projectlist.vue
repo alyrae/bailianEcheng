@@ -1,5 +1,5 @@
 <template>
-    <div class="projeclist">
+    <div class="projeclist" ref="projectlist">
         <div class="hd">
             全部
             <i class="iconfont icon-eye"></i>

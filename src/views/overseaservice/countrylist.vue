@@ -1,5 +1,5 @@
 <template>
-    <div class="countrylist">
+    <div class="countrylist" ref="coutrylist">
         <div class="hd">
             <i class="iconfont icon-yes"></i>
             国家地区

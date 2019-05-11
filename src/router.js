@@ -12,6 +12,12 @@ import My from './views/my'
 import Login from './views/login'
 import Forget from './views/forget'
 import Register from './views/register'
+import Sales from './views/sales'
+  import News from './views/sales/news'
+import Search from './views/search'
+  import Door from './views/search/door'
+  import Searchindex from './views/search/searchindex'
+
 
 Vue.use(Router)
 
@@ -69,6 +75,34 @@ export default new Router({
    {
      path: '/user/register',
      component: Register
+   },
+   {
+     path: '/sales',
+     component: Sales,
+     children: [
+       {
+         path: 'news',
+         component: News
+       }
+     ]
+   },
+   {
+     path: '/search',
+     component: Search,
+     children: [
+       {
+         path: '',
+         redirect: '/search/door'
+       },
+       {
+         path: 'door',
+         component: Door
+       },
+       {
+         path: 'index',
+         component: Searchindex
+       }
+     ]
    }
   ]
 })

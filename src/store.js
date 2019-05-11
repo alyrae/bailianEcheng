@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 import {SHOW_TABBAR_MUTATION, LOGIN_MUTATION, LOGIN_SHOW_MUTATION, LOGIN_METHOD, HASAPP_MUTATION, SHOW_BOTTOMBAR_MUTATION} from './type'
+
+import axios from 'axios'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,7 +16,14 @@ export default new Vuex.Store({
     loginmethod: '',
     hasapp: false,
     isbottombarshow: false,
-    overseas_index: {}
+    overseas_index: {},
+    datalist1:[],
+    rem:100,
+    homeinfo:{
+      fixed: false,
+      isnavshow: false,
+      per: 0
+    }
   },
   mutations: {
     [SHOW_TABBAR_MUTATION](state,payload){
@@ -35,9 +46,23 @@ export default new Vuex.Store({
     },
     overseas_index_mutation(state,payload){
       state.overseas_index = payload
-    }
+    },
+    postaaa(start,payload){
+      start.datalist1=payload
+    },
   },
   actions: {
    
-  }
+    
+    getaaa(store){
+      axios({
+        url:
+          "https://apim.restful.5lux.com.cn/index/other_advert",
+       
+      }).then(res => {
+        store.commit('postaaa',res.data.data)
+      });
+    }
+
+  },
 })

@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
     .log{
-        padding-top:.5rem;
+        padding-top:.9rem;
         overflow:hidden;
     }
     input{

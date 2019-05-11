@@ -1,19 +1,27 @@
 <template>
     <div id="register">
-        <reghd></reghd>
+        <hd title="用户注册"></hd>
         <reg></reg>
     </div>
 </template>
 <script>
 import reg from './register/reg'
-import reghd from './register/reghd'
+import hd from '../components/hd'
 export default {
     components:{
         reg,
-        reghd
+        hd
     }
 }
 </script>
+<style scoped lang="scss">
+    #register{
+        margin:0 auto;
+        left:0;
+        right:0
+    }
+</style>
+
 
 
 

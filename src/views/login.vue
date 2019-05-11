@@ -1,11 +1,11 @@
 <template>
     <div id="login">
-        <loginhd></loginhd>
+        <hd title="登录第五大道"></hd>
         <log></log>
     </div>
 </template>
 <script>
-import loginhd from './login/loginhd'
+import hd from '../components/hd'
 import log from './login/log'
 import { mapState } from 'vuex';
 export default {
@@ -13,9 +13,17 @@ export default {
         ...mapState(['isloginshow'])
     },
     components:{
-        loginhd,
+        hd,
         log
     }
 }
 </script>
+<style scoped lang="scss">
+    #login{
+        margin:0 auto;
+        left:0;
+        right:0
+    }
+</style>
+
 
