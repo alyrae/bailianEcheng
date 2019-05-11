@@ -4,10 +4,10 @@
             <i class="iconfont icon-yes"></i>
             国家地区
         </div>
-        <div class="wrapper_countrylist" v-if="obj.ovsproject_country!==undefined">
+        <div class="wrapper_countrylist" v-if="obj.ovsproject_country!==undefined" id="aaa">
             <ul class="content list">
-                <li v-for="data in obj.ovsproject_country">
-                    <img :src="data.banner_m">
+                <li v-for="data in obj.ovsproject_country" :key="data.c_id">                    
+                    <img v-lazy.aaa="data.banner_m">
                     <div>
                         <h2>{{data.name}}</h2>
                         <p>{{data.name_en}}</p>
@@ -35,8 +35,9 @@ export default {
         axios({
             url: 'https://apim.restful.5lux.com.cn/ovscountry/ovscountry_list'
         }).then(res=>{
-            this.obj = res.data.data            
-        })        
+            this.obj = res.data.data  
+            console.log(this.obj.ovsproject_country)          
+        })
     },
     destroyed(){
         this.$store.commit('isbottombarshowmutation',false)
@@ -47,6 +48,7 @@ export default {
             scrollX: false,
             click: true
         })
+
     }
 }
 </script>

@@ -8,7 +8,11 @@ export default {
     props:['title'],
     methods:{
         toBack(){
-            this.$router.go(-1)
+            if(this.$route.path=='/user/login'){
+                this.$router.go(-2)
+            }else{
+                this.$router.go(-1)
+            }
         }
     }
 }

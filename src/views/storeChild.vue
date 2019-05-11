@@ -1,7 +1,7 @@
 <template> 
 <div class="storeNav"> 
     <ul> 
-        <li v-for="data in list" @click="handleChangePage(data.id)" :key="data.id">
+        <li v-for="data in list" :key="data.id">
             <img :src="data.store_thumb"> 
              <h3> {{ data.title }} </h3> 
              <h5>推荐</h5> 

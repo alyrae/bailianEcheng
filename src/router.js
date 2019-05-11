@@ -17,7 +17,7 @@ import Sales from './views/sales'
 import Search from './views/search'
   import Door from './views/search/door'
   import Searchindex from './views/search/searchindex'
-
+import New from './views/new'
 
 Vue.use(Router)
 
@@ -103,6 +103,10 @@ export default new Router({
          component: Searchindex
        }
      ]
+   },
+   {
+     path: '/new',
+     component: New
    }
   ]
 })
