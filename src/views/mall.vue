@@ -23,7 +23,11 @@ export default {
         this.$store.commit('istabbarshowmutation',false)
     },
     mounted(){
-        this.$store.commit('istabbarshowmutation',true)
+        if(this.$route.query.id!==0){
+            this.$store.state.ishome=true
+            this.$router.push('/mall?id=0')
+            }
+            this.$store.commit('istabbarshowmutation',true)
     }
 }
 </script>

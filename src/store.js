@@ -23,7 +23,12 @@ export default new Vuex.Store({
       fixed: false,
       isnavshow: false,
       per: 0
-    }
+    },
+    datalist1:[],
+    ishome: true,
+    datalist: {},
+    datalista:{},
+    datali:{}
   },
   mutations: {
     [SHOW_TABBAR_MUTATION](state,payload){

@@ -1,19 +1,64 @@
 <template>
-  <div v-if="datalist.fashion_video!==undefined">
+  <div v-if="datalist.fashion_video!==undefined" class="both">
     <div class="tv">
       <p class="aaa">{{datalist.fashion_video.title}}</p>
       <p class="aaa">---{{datalist.fashion_video.title_en}}---</p>
       <ul class="list">
         <li v-for="data in datalist.fashion_video.list">
           <img :src="data.ad_code" alt>
-          <p>{{data.ad_name}}</p>
+          <p class="bbb">{{data.ad_name}}</p>
         </li>
       </ul>
     </div>
     <div class="style">
       <p class="aaa">{{datalist.star_outfits.title}}</p>
       <p class="aaa">---{{datalist.star_outfits.title_en}}---</p>
-      <img :src="datalist.star_outfits.list.ad_code" alt="" >
+      <ul>
+        <li>
+          <img :src="datalist.star_outfits.list.ad_code" alt>
+          <p>{{datalist.star_outfits.list.ad_name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="over">
+      <p class="aaa">{{datalist.oversea_recommend.title}}</p>
+      <p class="aaa">---{{datalist.oversea_recommend.title_en}}---</p>
+      <ul>
+        <li v-for="data in datalist.oversea_recommend.list">
+          <img :src="data.ad_code" alt>
+          <p>{{data.ad_name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="over">
+      <p class="aaa">{{datalist.vip_special.title}}</p>
+      <p class="aaa">---{{datalist.vip_special.title_en}}---</p>
+      <ul>
+        <li v-for="data in datalist.vip_special.list">
+          <img :src="data.ad_code" alt>
+          <p>{{data.ad_name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="new">
+      <p class="aaa">{{datalist.new_recommend.title}}</p>
+      <p class="aaa">---{{datalist.new_recommend.title_en}}---</p>
+      <ul>
+        <li v-for="data in datalist.new_recommend.list">
+          <img :src="data.ad_code" alt>
+          <p>{{data.ad_name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="stores">
+      <p class="aaa">{{datalist.top5flag.title}}</p>
+      <p class="aaa">---{{datalist.top5flag.title_en}}---</p>
+      <ul>
+        <li v-for="data in datalist.top5flag.list">
+          <img :src="data.ad_code" alt>
+          <p>{{data.ad_name}}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -40,21 +85,45 @@ export default {
 };
 </script>
 <style scoped>
-.style img{
-    width: 100%
+.both{
+        margin-bottom: .5rem
+
 }
-p{
+.stores li{
+    width: 100%;
+}
+.new li:nth-last-of-type(1){
+    width: 46%;
+     margin: 2%;
+}
+.new li{
+         height: 1.8rem;
+
+}
+ul{
+    overflow: hidden;
+}
+li {
+  position: relative;
   text-align: center;
-}
-.list li {
-  float: left;
+   float: left;
   width: 46%;
   margin: 2%;
+  
 }
-.list img {
+li > p {
+  position: absolute;
+  bottom: 0.1rem;
   width: 100%;
+  color: #fff;
 }
-.list li:nth-last-of-type(1) {
+img{
+    width: 100%
+}
+p {
+  text-align: center;
+}
+li:nth-last-of-type(1) {
   width: 100%;
   margin: 0;
 }
