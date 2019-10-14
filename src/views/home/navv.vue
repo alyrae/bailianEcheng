@@ -19,10 +19,6 @@ export default {
          mounted() {
         axios({
             url:`https://apim.restful.5lux.com.cn/index/index_button`,
-				// headers:{
-				// 	'Access-Control-Request-Headers': 'x-client-info,x-host'
-
-				// }
 			}).then(res=>{
                 console.log(res.data.data.list);
                 this.datalist=res.data.data.list

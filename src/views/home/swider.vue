@@ -23,7 +23,6 @@ export default {
     
     axios({
       url: "https://apim.restful.5lux.com.cn/index/index_slider",
-   
     }).then(res => {
       this.datalist=res.data.data
       console.log(this.datalist)
